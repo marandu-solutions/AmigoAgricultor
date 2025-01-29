@@ -1,0 +1,17 @@
+{
+    "name": "emparn-serverless",
+    "version": "1.0.0",
+    "description": "Função serverless que consome a API da Emparn e retorna dados simplificados",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vercel dev"
+    },
+    "engines": {
+        "node": "16.x"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "node-fetch": "^2.7.0"
+    }
+}
