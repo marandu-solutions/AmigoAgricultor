@@ -2,8 +2,14 @@ const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
   try {
-    const response = await fetch('https://meteorologia.emparn.rn.gov.br/api/riscos-agricolas/exibicao?ano=2024&idCultura=8&idSolo=1&porcentagem=PORCENTAGEM_20');
-    
+    // Definir os headers, incluindo o User-Agent
+    const headers = {
+      'User-Agent': 'Mozilla/5.0', // Definindo o User-Agent
+    };
+
+    // Realizando a requisição com os headers personalizados
+    const response = await fetch('https://meteorologia.emparn.rn.gov.br/api/riscos-agricolas/exibicao?ano=2024&idCultura=8&idSolo=1&porcentagem=PORCENTAGEM_20', { headers });
+
     if (!response.ok) {
       throw new Error(`Erro na requisição: ${response.statusText}`);
     }
@@ -31,5 +37,4 @@ module.exports = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Erro ao acessar a API da Emparn' });
   }
-
 };
