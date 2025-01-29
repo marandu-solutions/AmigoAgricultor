@@ -1,4 +1,3 @@
-// api/emparn.js
 const fetch = require('node-fetch');
 
 module.exports = async (req, res) => {
@@ -21,6 +20,11 @@ module.exports = async (req, res) => {
         nome: data.solo.nome
       }
     };
+
+    // Adicionando os headers de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Permite todas as origens (você pode restringir para um domínio específico, se necessário)
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Métodos permitidos
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeçalhos permitidos
 
     res.status(200).json(resultado);
   } catch (error) {
